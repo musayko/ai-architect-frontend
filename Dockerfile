@@ -21,8 +21,7 @@ FROM nginx:1.25-alpine AS production-stage
 # Copy the build output from the build stage to Nginx's web server directory
 COPY --from=build-stage /app/dist /usr/share/nginx/html
 
-# Optional: Copy a custom Nginx configuration if needed
-# COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Expose port 80
 EXPOSE 80
